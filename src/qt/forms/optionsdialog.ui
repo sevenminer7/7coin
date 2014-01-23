@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OptionsDialog</class>
+ <widget class="QDialog" name="OptionsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>380</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Options</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+:disabled{
+   color: rgb(130,130, 130);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QMainWindow{
+   background-color: rgb(80, 80, 80);
+}
+
+QMainWindow::separator {
+   border: 0px solid red;
+}
+
+QMainWindow::separator:hover {
+   background-color: rgb(255, 170, 0);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QPushButton{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+    border: 1px solid black;
+    color:rgb(220,220,220);
+    padding: 1ex 2ex;
+}
+
+QPushButton::hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(120, 120, 120));
+    color:rgb(255,255,255);
+}
+
+QPushButton:pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(90, 90, 90));
+}
+
+QDialogButtonBox &gt; QPushButton, QDialog &gt; QPushButton, QWizard &gt; QWidget &gt; QPushButton{
+    min-width: 5em;
+    min-height: 1.4em;
+}
+
+QPushButton#m_pbFolderTpl, QPushButton#m_pbFilenameTpl, QPushButton#m_pbInfo, QPushButton#m_pbSoundPlay
+{
+   background-color:transparent;
+   border: 0px solid red;
+
+}
+
+QPushButton[text=&quot;...&quot;]{
+    min-width: 1em;
+}
+
+QPushButton#m_pbAdvancedSetting{
+   background-color:transparent;
+   border:0px solid red;
+   padding: 0ex 0ex;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QDockWidget
+{
+   background-color: rgb(90, 90, 90);
+   border-top: 1px solid orange;
+   color:rgb(220, 220, 220);
+}
+
+QDockWidget::title
+{
+   background-color: rgb(90, 90, 90);
+   border: 0px solid black;
+
+   padding: 0.4em;
+}
+
+QDockWidget  .QWidget{
+   background-color: rgb(40, 40, 40);
+   color: rgb(200,200,200);
+   border: 0px solid red;
+}
+
+QDockWidget QScrollArea{
+    border: 0px solid rgb(90, 90, 90);
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QHeaderView::section{
+   color: rgb(220,220,220);
+}
+
+QHeaderView::section{
+   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+   padding: 1ex;
+}
+
+QHeaderView::section:first{
+   border-top: 0px solid black;
+   border-right: 0px solid black;
+   border-bottom: 1px solid black;
+   border-left: 0px solid black;
+}
+
+QHeaderView::section:middle{
+   border-top: 0px solid black;
+   border-right: 0px solid black;
+   border-bottom: 1px solid black;
+   border-left: 1px solid black;
+}
+
+QHeaderView::section:last{
+   border-top: 0px solid black;
+   border-right: 0px solid black;
+   border-bottom: 1px solid black;
+   border-left: 1px solid black;
+}
+
+QHeaderView::section:hover{
+     background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(120, 120, 120));
+}
+
+QHeaderView::section:pressed{
+     background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(120, 120, 120));
+}
+
+ /* style the sort indicator */
+QHeaderView::down-arrow {
+    image: url(&quot;UI:arrow_down_V2.png&quot;);
+
+    width: 10px;
+    height: 10px;
+
+    padding-right: 1ex;
+}
+
+QHeaderView::up-arrow {
+    image: url(&quot;UI:arrow_up_V2.png&quot;);
+
+    width: 10px;
+    height: 10px;
+
+    padding-right: 1ex;
+}
+
+QTreeView#UIGroup_TreeView QHeaderView::section:first{
+    border-left: 1px solid black;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QScrollBar{
+    background-color:  rgb(55, 55, 55);
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+}
+
+QScrollBar::horizontal{
+    border:0px solid rgb(90, 90, 90);
+    border-left: 0px solid red;
+    border-right: 0px solid red;
+
+    margin: 0px 16px 0px 16px;
+}
+
+QScrollBar::vertical {
+    border: 0px solid rgb(90, 90, 90);
+    border-top: 0px solid red;
+    border-bottom: 0px solid red;
+
+    margin: 16px 0px 16px 0px;
+}
+
+QScrollBar::handle{
+    background-color: rgb(110, 110, 110);
+    border: 1px solid rgb(65, 65, 65);
+}
+
+QScrollBar::handle:horizontal{
+    min-width: 20px;
+}
+
+QScrollBar::handle:vertical{
+    min-height: 20px;
+}
+
+QScrollBar::handle:hover {
+    background-color: rgb(130, 130, 130);
+}
+
+QScrollBar::handle:pressed {
+    background-color: rgb(180, 180, 180);
+}
+
+QScrollBar::add-line:horizontal {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(60, 60, 60), stop:1 rgb(90, 90, 90));
+    border: 1px solid rgb(90, 90, 90);
+    border-left:0px;
+
+    width: 15px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+    border: 1px solid rgb(90, 90, 90);
+    border-right:0px;
+
+    width: 15px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(100, 100, 100), stop:1 rgb(150, 150, 150));
+}
+
+QScrollBar::sub-line:horizontal:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(150, 150, 150), stop:1 rgb(100, 100, 100));
+}
+
+QScrollBar::add-line:horizontal:pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(130, 130, 130), stop:1 rgb(180, 180, 180));
+}
+
+QScrollBar::sub-line:horizontal:pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(180, 180, 180), stop:1 rgb(130, 130, 130));
+}
+
+QScrollBar::add-line:vertical {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(60, 60, 60), stop:1 rgb(90, 90, 90));
+    border: 1px solid rgb(90, 90, 90);
+    border-top:0px;
+
+    height: 15px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+    border: 1px solid rgb(90, 90, 90);
+    border-bottom:0px;
+
+    height: 15px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(100, 100, 100), stop:1 rgb(150, 150, 150));
+}
+
+QScrollBar::sub-line:vertical:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(100, 100, 100));
+}
+
+QScrollBar::add-line:vertical:pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(130, 130, 130), stop:1 rgb(180, 180, 180));
+}
+
+QScrollBar::sub-line:vertical:pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(130, 130, 130));
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QSplitter{
+    background-color: transparent;
+    border: 0px solid red;
+}
+
+QSplitter::handle{
+    background-color: rgb(40,40,40);
+    border: 0px solid green;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QScrollArea {
+    background-color: transparent;
+    border: 0px solid red;
+}
+
+/*----------------------------------------------------------------------------*/
+/* FOLDER TREE                                                                          */
+/*----------------------------------------------------------------------------*/
+QTreeView{
+    background-color: rgb(100, 100, 100);
+    alternate-background-color:  rgb(90, 90, 90);
+    border: 0px solid black;
+}
+
+QTreeView:active{
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80, 80, 80), stop:1 rgb(60, 60, 60));
+}
+
+QTreeView:!active{
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80, 80, 80), stop:1 rgb(70, 70, 70));
+}
+
+QTreeView::item{
+    color: rgb(220,220,220);
+    border: 0px solid green;
+}
+
+QTreeView::item:alternate{
+}
+
+QTreeView::item:selected:!active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(70, 70, 70), stop:1 rgb(50, 50, 50));
+}
+
+QTreeView::item:selected:active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80, 80, 80), stop:1 rgb(60, 60, 60));
+}
+
+QTreeView::item:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80, 80, 80), stop:1 rgb(60, 60, 60));
+}
+
+QTreeView::branch:closed:has-children:!has-siblings, QTreeView::branch:closed:has-children:has-siblings{
+    image: url(UI:treeview_arrow_right.png);
+}
+
+QTreeView::branch:open:has-children:!has-siblings, QTreeView::branch:open:has-children:has-siblings{
+    image: url(UI:treeview_arrow_down.png);
+}
+
+QTreeView::indicator{
+    border: 0px solid red;
+    width: 14px;
+    height: 16px;
+}
+
+QTreeView::indicator:unchecked{
+     image: url(UI:checkbox_unchecked.png);
+ }
+
+QTreeView::indicator:unchecked:disabled{
+     image: url(UI:checkbox_unchecked_disabled.png);
+ }
+
+QTreeView::indicator:checked{
+     image: url(UI:checkbox_checked.png);
+ }
+
+QTreeView::indicator:checked:disabled{
+     image: url(UI:checkbox_checked_disabled.png);
+}
+
+QTreeView#UIGroup_TreeView{
+    background-color: rgb(40, 40, 40);
+    alternate-background-color:  rgb(50, 50, 50);
+    border: 0px solid black;
+}
+
+
+QTreeView#UIGroup_TreeView:active{
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(110, 110, 110), stop:1 rgb(100, 100, 100));
+}
+
+QTreeView#UIGroup_TreeView:!active{
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80,80, 80), stop:1 rgb(70, 70, 70));
+}
+
+
+QTreeView#UIGroup_TreeView::item:selected:!active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(80,80, 80), stop:1 rgb(70, 70, 70));
+}
+
+QTreeView#UIGroup_TreeView::item:selected:active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(110, 110, 110), stop:1 rgb(100, 100, 100));
+}
+
+QTreeView#UIGroup_TreeView::item:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(110, 110, 110), stop:1 rgb(100, 100, 100));
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+MyThumbListView{
+    background-color: black;
+}
+
+QListView{
+    background-color: rgb(65, 65, 65);
+    border: 0px solid black;
+}
+
+QListView::item{
+    color: rgb(20,20,20);
+}
+
+QListView::item:alternate{
+ }
+
+QListView::item:selected{
+    color: rgb(220,220,220);
+}
+
+QListView::item:selected:!active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(60, 60, 60), stop:1 rgb(60, 60, 60));
+}
+
+QListView::item:selected:active{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+ }
+
+QListView::item:hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+}
+
+QListView#UIGroup_ListView{
+    background-color: rgb(40, 40, 40);
+    border: 0px solid black;
+    selection-background-color: rgb(60, 60, 60);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QTableView{
+    background-color: rgb(180, 180, 180);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QMenuBar{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(100, 100, 100));
+}
+
+QMenuBar::item{
+    background-color: transparent;
+    color: rgb(220, 220, 220);
+}
+
+QMenuBar::item:selected{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(130, 130, 130));
+    color: rgb(220, 220, 220);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QMenu{
+    background-color: rgb(60, 60, 60);
+    color: rgb(220, 220, 220);
+    border: 0px solid red;
+    padding: 5px;
+}
+
+QMenu::item{
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 2px 25px 2px 20px;
+}
+
+QMenu::item:selected{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(100, 100, 100));
+    border: 1px solid transparent;
+    color:rgb(220, 220, 220);
+}
+
+QMenu::separator{
+   height: 1px;
+   background-color: rgb(220, 220, 220);
+   margin: 5px 25px 5px 20px;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QDialog{
+    background-color:  rgb(95, 95, 95);
+    border: 0px solid black;
+}
+
+QDialog QWidget#qt_scrollarea_viewport &gt; QWidget {
+    border: 0px solid black;
+}
+
+QDialog WScrollArea{
+   background-color: rgb(40, 40, 40);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QTabWidget::pane { /* The tab widget frame */
+     border: 0px solid black;
+     margin-top:-1px;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/* TOP TAB BAR */
+/*----------------------------------------------------------------------------*/
+QTabBar{
+    background-color: transparent;
+    border:0px solid red;
+    border-right-color: rgb(30, 144, 255);
+}
+
+QTabBar::tab{
+    background-color: rgb(40, 40, 40);
+    color: rgb(200, 200, 200);
+}
+
+QTabBar[shape=&quot;0&quot;]::tab{
+    min-width:3em;
+    padding: 1ex 3ex;
+}
+
+MyTabBar[shape=&quot;0&quot;]::tab:selected{
+    border-bottom-color: rgb(120, 120, 120);
+}
+
+QTabBar[shape=&quot;0&quot;]::tab:selected{
+    background-color: rgb(120, 120, 120);
+    border-bottom-color: rgb(40, 40, 40);
+}
+
+MyTabWidget::tab-bar {
+    left: 1px;
+}
+
+MyTabBar::tab:selected{
+    color: white;
+    background-color: rgb(120, 120, 120);
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     border-top:3px solid rgb(30, 144, 255);
+}
+
+MyTabBar[shape=&quot;0&quot;]::tab:selected{
+    border-bottom-color: rgb(120, 120, 120);
+}
+
+MyTabWidget::pane{
+    padding: 1px 0px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* FOLDER TREE AND CATEGORY TABS*/
+/*----------------------------------------------------------------------------*/
+QTabBar[shape=&quot;2&quot;]::tab{
+    min-height:3em;
+    padding: 3ex 1ex;
+}
+
+QTabBar[shape=&quot;2&quot;]::tab:selected{
+    background-color: rgb(100, 100, 100);
+    border-left:3px solid rgb(30, 144, 255);
+}
+
+/*
+QTabBar::tab:first:selected{
+    margin-left: 0px;
+    margin-right: -2px;
+}
+
+QTabBar::tab:middle:selected{
+    margin-left: 0px;
+    margin-right: -2px;
+ }
+
+QTabBar::tab:last:selected{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+*/
+
+QTabBar[shape=&quot;0&quot;]::tab:!selected{
+    margin-top: 2px;
+}
+
+QTabBar::tab:last:!selected{
+    border-left:0px solid red;
+    border-right:0px solid black;
+}
+
+QTabBar::tab:!selected:hover{
+     background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+}
+
+QTabBar[shape=&quot;1&quot;]::tab:selected{
+    border-top-color: rgb(40, 40, 40);
+    margin-left: 0px;
+    margin-right: -2px;
+}
+
+QTabBar[shape=&quot;1&quot;]::tab:!selected{
+    margin-bottom: 2px;
+}
+
+QTabBar[shape=&quot;0&quot;]::tab:selected{
+    border-top-color: rgb(30, 144, 255);
+}
+
+QTabBar[shape=&quot;1&quot;]::tab:selected{
+    border-bottom-color: rgb(30, 144, 255);
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QProgressBar{
+    background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+    border: 1px solid black;
+}
+
+QProgressBar::chunk{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(180, 180, 0, 100), stop:1 rgba(60, 60, 60, 60));
+    border: 1px solid rgba(180, 180, 180, 200);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QToolBar{
+    border: 0px;
+}
+
+QToolBar:horizontal{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(100, 100, 100), stop:1 rgb(80, 80, 80));
+}
+
+QToolBar:vertical{
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+}
+
+QToolBar:separator{
+   background-color:qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(90, 90, 90));;
+   border-right: 0px solid black;
+   border-bottom: 0px solid black;
+
+   width:1px;
+   height:1px;
+   margin:5px;
+}
+
+QToolBar#UIPanosView_ToolBar{
+    border-top: 1px solid black;
+    border-bottom: 0px solid red;
+}
+
+QToolBar#UIGroupsView_ToolBar{
+    border-top: 1px solid black;
+    border-bottom: 0px solid red;
+}
+
+QToolBar#UIGroup_ToolBar{
+    border-bottom: 1px solid black;
+}
+
+QToolBar#UIPano_ToolBar{
+    border-bottom: 1px solid black;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QSlider::groove:horizontal {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(140, 140, 140));
+    border: 0px solid rgb(60, 60, 60);
+    height: 8px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
+}
+
+QSlider::handle:horizontal {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(140, 140, 140));
+    border: 1px solid rgb(60, 60, 60);
+    width: 8px;
+    margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+    border-radius: 2px;
+ }
+
+QSlider::handle:horizontal:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(220, 220, 220), stop:1 rgb(180, 180, 180));
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QStatusBar{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(90, 90, 90), stop:1 rgb(60, 60, 60));
+    color: rgb(220, 220, 220);
+    border: 0px solid red;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+DlgSettings QToolButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(60, 60, 60), stop:1 rgb(90, 90, 90));
+    color:rgb(220,220,220);
+}
+
+DlgSettings QTabWidget::pane {
+    background-color: rgb(60, 60, 60);
+}
+
+DlgSettings QTabBar[shape=&quot;0&quot;]::tab:selected {
+    background-color: rgb(60, 60, 60);
+    color: white;
+    border-top:3px solid rgb(30, 144, 255);
+}
+
+QToolButton {
+   background-color: transparent;
+    border: 0px solid red;
+    color:rgb(220, 220, 220);
+}
+
+QToolButton#m_tbClose{
+    background-color: transparent;
+}
+
+QToolButton::hover{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:1 rgb(120, 120, 120));
+}
+
+QToolButton::checked{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+}
+
+QToolButton::pressed{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(90, 90, 90));
+}
+
+QToolButton[popupMode=&quot;1&quot;]{
+    padding-right: 10px;
+}
+
+QToolButton::menu-button{
+    border: 0px solid red;
+}
+
+QToolButton::menu-button:hover{
+   background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+}
+
+QToolButton::menu-button:pressed{
+
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QLabel, QCheckBox, QRadioButton{
+    color: rgb(220, 220, 220);
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QSpinBox, QDoubleSpinBox {
+   background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+   border: 1px solid black;
+   padding:0px;
+
+   selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(90, 90, 90));
+   selection-color: rgb(25, 25, 25);
+}
+
+
+QSpinBox::up-button, QSpinBox::down-button, QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
+     subcontrol-origin: border;
+     width: 16px;
+     border-width: 0px;
+ }
+
+QSpinBox::up-button, QDoubleSpinBox::up-button {
+     subcontrol-position: top right;
+}
+
+QSpinBox::down-button, QDoubleSpinBox::down-button {
+     subcontrol-position: bottom right;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+s
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QLineEdit{
+   background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+   border: 0px solid black;
+   padding:0px;
+   color:black;
+
+   selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(90, 90, 90));
+   selection-color: black;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QComboBox{
+     border: 0px solid black;
+     padding: 0px 18px 0px 3px;
+ }
+
+QComboBox:!editable, QComboBox::drop-down:editable{
+     background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+ }
+
+QComboBox:editable{
+     background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(120, 120, 120), stop:1 rgb(90, 90, 90));
+    selection-color: rgb(25, 25, 25);
+}
+
+QComboBox:!editable:on, QComboBox::drop-down:editable:on{
+     background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+}
+
+QComboBox::drop-down{
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+     border: 0px;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/* fix group box */
+QGroupBox{
+    color: rgb(200, 200, 200);
+    background-color: rgb(90, 90, 90);
+    border: 1px solid black;
+
+    margin-top: 1.1em; /* leave space at the top for the title */
+    margin-bottom: 0.1em; /* leave space at the top for the title */
+
+    font-weight: bold;
+}
+
+QGroupBox::title{
+    border: 0px solid red;
+
+    subcontrol-origin: margin;
+    top: 0px;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QTextEdit{
+    background-color: rgb(90, 90, 90);
+    color: rgb(220,220,220);
+    border: 3px solid rgb(90, 90, 90);
+
+   selection-background-color:  rgb(60, 60, 60) ;
+   selection-color: rgb(220, 220, 220);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QToolTip{
+      background-color:  qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(150, 150, 150));
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+QWizard{
+}
+
+QWizard .QWidget{
+      background-color: rgb(40,40,40);
+      color:rgb(220,220,220);
+}
+
+QWizard .QFrame{
+      background-color: rgb(40,40,40);
+      color:rgb(220,220,220);
+}
+
+QWizard  &gt; .QWidget &gt; .QLabel{
+      background-color: rgb(40,40,40);
+      color:rgb(220,220,220);
+}
+
+QWizard QListView{
+      background-color: rgb(60,60,60);
+      color:rgb(220,220,220);
+}
+
+
+QWizardPage .QFrame{
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+SearchLineEdit{
+    background-color:  transparent;
+    border: 0px solid black;
+    padding: 0px;
+}
+
+SearchLineEdit&gt;QLineEdit{
+    background-color: rgb(160, 160, 160);
+}
+</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabMain">
+      <attribute name="title">
+       <string>&amp;Main</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_Main">
+       <item>
+        <widget class="QLabel" name="transactionFeeInfoLabel">
+         <property name="text">
+          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Main">
+         <item>
+          <widget class="QLabel" name="transactionFeeLabel">
+           <property name="text">
+            <string>Pay transaction &amp;fee</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>transactionFee</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="BitcoinAmountField" name="transactionFee"/>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_Main">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="bitcoinAtStartup">
+         <property name="toolTip">
+          <string>Automatically start 7 after logging in to the system.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Start 7 on system login</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="detachDatabases">
+         <property name="toolTip">
+          <string>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Detach databases at shutdown</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_Main">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabNetwork">
+      <attribute name="title">
+       <string>&amp;Network</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_Network">
+       <item>
+        <widget class="QCheckBox" name="mapPortUpnp">
+         <property name="toolTip">
+          <string>Automatically open the 7 client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+         </property>
+         <property name="text">
+          <string>Map port using &amp;UPnP</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="connectSocks">
+         <property name="toolTip">
+          <string>Connect to the 7 network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+         </property>
+         <property name="text">
+          <string>&amp;Connect through SOCKS proxy:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Network">
+         <item>
+          <widget class="QLabel" name="proxyIpLabel">
+           <property name="text">
+            <string>Proxy &amp;IP:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>proxyIp</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValidatedLineEdit" name="proxyIp">
+           <property name="maximumSize">
+            <size>
+             <width>140</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>IP address of the proxy (e.g. 127.0.0.1)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="proxyPortLabel">
+           <property name="text">
+            <string>&amp;Port:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>proxyPort</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="proxyPort">
+           <property name="maximumSize">
+            <size>
+             <width>55</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Port of the proxy (e.g. 9050)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="socksVersionLabel">
+           <property name="text">
+            <string>SOCKS &amp;Version:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>socksVersion</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValueComboBox" name="socksVersion">
+           <property name="toolTip">
+            <string>SOCKS version of the proxy (e.g. 5)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_Network">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_Network">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabWindow">
+      <attribute name="title">
+       <string>&amp;Window</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_Window">
+       <item>
+        <widget class="QCheckBox" name="minimizeToTray">
+         <property name="toolTip">
+          <string>Show only a tray icon after minimizing the window.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Minimize to the tray instead of the taskbar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="minimizeOnClose">
+         <property name="toolTip">
+          <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
+         </property>
+         <property name="text">
+          <string>M&amp;inimize on close</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_Window">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabDisplay">
+      <attribute name="title">
+       <string>&amp;Display</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_Display">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_1_Display">
+         <item>
+          <widget class="QLabel" name="langLabel">
+           <property name="text">
+            <string>User Interface &amp;language:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>lang</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValueComboBox" name="lang">
+           <property name="toolTip">
+            <string>The user interface language can be set here. This setting will take effect after restarting 42.</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2_Display">
+         <item>
+          <widget class="QLabel" name="unitLabel">
+           <property name="text">
+            <string>&amp;Unit to show amounts in:</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="buddy">
+            <cstring>unit</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QValueComboBox" name="unit">
+           <property name="toolTip">
+            <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="displayAddresses">
+         <property name="toolTip">
+          <string>Whether to show 42 addresses in the transaction list or not.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Display addresses in transaction list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_Display">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_Buttons">
+     <item>
+      <spacer name="horizontalSpacer_1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>48</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusLabel">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>48</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okButton">
+       <property name="text">
+        <string>&amp;OK</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelButton">
+       <property name="text">
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="applyButton">
+       <property name="text">
+        <string>&amp;Apply</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BitcoinAmountField</class>
+   <extends>QLineEdit</extends>
+   <header>bitcoinamountfield.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QValidatedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qvaluecombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
